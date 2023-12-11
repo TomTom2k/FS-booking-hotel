@@ -2,8 +2,8 @@
 // eslint-disable-next-line no-unused-vars
 import React, { useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
-import { Col } from 'react-bootstrap';
-import { FaTrashAlt, FaEye, FaEdit } from 'react-icons/fa';
+import { Col, Row } from 'react-bootstrap';
+import { FaTrashAlt, FaEye, FaEdit, FaPlus } from 'react-icons/fa';
 
 import { deleteRoom, getAllRooms } from '../utils/ApiFuntions';
 import RoomFilter from '../common/RoomFilter';
@@ -85,15 +85,22 @@ const ExistingRooms = () => {
 			) : (
 				<>
 					<div name="" id="" className="my-5 container">
-						<div className="f-flex justify-content-center mb-3 mt-5">
+						<div className="d-flex justify-content-between mb-3 mt-5">
 							<h2>Existing Rooms</h2>
 						</div>
-						<Col md={6} className="mb-3 mb-md-0">
-							<RoomFilter
-								data={rooms}
-								setFilteredData={setFilteredRooms}
-							/>
-						</Col>
+						<Row>
+							<Col md={6} className="mb-3 mb-md-0">
+								<RoomFilter
+									data={rooms}
+									setFilteredData={setFilteredRooms}
+								/>
+							</Col>
+							<Col md={6} className="d-flex justify-content-end">
+								<Link to={'/add-room'}>
+									<FaPlus /> Add Room
+								</Link>
+							</Col>
+						</Row>
 						<table className="table table-bordered table-hover">
 							<thead>
 								<tr className="text-center">
