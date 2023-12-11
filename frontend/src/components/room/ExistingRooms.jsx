@@ -1,10 +1,13 @@
 /* eslint-disable no-unused-vars */
 // eslint-disable-next-line no-unused-vars
 import React, { useEffect, useState } from 'react';
-import { getAllRooms } from '../utils/ApiFuntions';
+import { Link } from 'react-router-dom';
 import { Col } from 'react-bootstrap';
-import RoomFilter from './RoomFilter';
-import RoomPaginator from './RoomPaginator';
+import { FaTrashAlt, FaEye, FaEdit } from 'react-icons/fa';
+
+import { deleteRoom, getAllRooms } from '../utils/ApiFuntions';
+import RoomFilter from '../common/RoomFilter';
+import RoomPaginator from '../common/RoomPaginator';
 
 const ExistingRooms = () => {
 	const [rooms, setRooms] = useState([]);
@@ -49,6 +52,24 @@ const ExistingRooms = () => {
 		return Math.ceil(totalRooms / roomsPerPage);
 	};
 
+	const handleDelete = async (roomId) => {
+		try {
+			const res = await deleteRoom(roomId);
+			if (res === '') {
+				setSuccessMessage(`Room no ${roomId} was delete`);
+				fetchRooms();
+			} else {
+				setErrorMessage(`Error deleting room : ${res.message}`);
+			}
+		} catch (error) {
+			setErrorMessage(error.message);
+		}
+		setTimeout(() => {
+			setSuccessMessage('');
+			setErrorMessage('');
+		}, 3000);
+	};
+
 	const handlePaginationClick = (pageNumber) => {
 		setCurrentPage(pageNumber);
 	};
@@ -88,9 +109,23 @@ const ExistingRooms = () => {
 										<td>{room.id}</td>
 										<td>{room.roomType}</td>
 										<td>{room.roomPrice}</td>
-										<td>
-											<button>View / Edit</button>
-											<button>Delete</button>
+										<td className="g-2">
+											<Link to={`/edit-room/${room.id}`}>
+												<span className="btn btn-info btn-sm">
+													<FaEye />
+												</span>
+												<span className="btn btn-warning btn-sm">
+													<FaEdit />
+												</span>
+											</Link>
+											<button
+												className="btn btn-danger btn-sm"
+												onClick={() =>
+													handleDelete(room.id)
+												}
+											>
+												<FaTrashAlt />
+											</button>
 										</td>
 									</tr>
 								))}
