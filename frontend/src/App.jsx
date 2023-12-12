@@ -7,6 +7,7 @@ import ExistingRooms from './components/room/ExistingRooms';
 import AddRoom from './components/room/AddRoom';
 import Footer from './components/layout/Footer';
 import Navbar from './components/layout/Navbar';
+import RoomList from './components/room/RoomList';
 
 function App() {
 	return (
@@ -25,6 +26,10 @@ function App() {
 							element={<ExistingRooms />}
 						/>
 						<Route path="/add-room" element={<AddRoom />} />
+						<Route
+							path="/browse-all-rooms"
+							element={<RoomList />}
+						/>
 					</Routes>
 				</Router>
 				<Footer />
