@@ -6,7 +6,7 @@ import { Link, NavLink } from 'react-router-dom';
 const Navbar = () => {
 	return (
 		<nav className="navbar navbar-expand-lg bg-body-tertiary px-5 shadow mt-5 sticky-top">
-			<div className="container-fluid">
+			<div className=" container-fluid">
 				<Link to={'/'}>
 					<span className="hotel-color">Booking Hotel</span>
 				</Link>
@@ -27,7 +27,7 @@ const Navbar = () => {
 							<NavLink
 								className="nav-link"
 								aria-current="page"
-								to="/browse-all-rooms"
+								to="/browser-all-rooms"
 							>
 								Browse all rooms
 							</NavLink>
