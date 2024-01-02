@@ -73,7 +73,7 @@ const RoomCarousel = () => {
 															className="btn btn-sm btn-hotel"
 															to={`/book-room/${room.id}`}
 														>
-															View/Book Now
+															Book Now
 														</Link>
 													</div>
 												</Card.Body>

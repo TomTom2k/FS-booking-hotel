@@ -10,16 +10,21 @@ const RoomCard = ({ room }) => {
 			<Card>
 				<Card.Body className="d-flex flex-wrap align-items-center">
 					<div className="flex-shrink-0 mb-3 mb-md-0">
-						<Card.Img
-							variant="top"
-							src={`data:image/png;base64, ${room.photo}`}
-							alt="Room photo"
-							style={{
-								width: '100%',
-								maxWidth: '200px',
-								height: 'auto',
-							}}
-						/>
+						<Link
+							to={`/book-room/${room.id}`}
+							className="btn btn-hotel btn-sm"
+						>
+							<Card.Img
+								variant="top"
+								src={`data:image/png;base64, ${room.photo}`}
+								alt="Room photo"
+								style={{
+									width: '100%',
+									maxWidth: '200px',
+									height: 'auto',
+								}}
+							/>
+						</Link>
 					</div>
 					<div className="flex-grow-1 me-3 px-5">
 						<Card.Title className="hotel-color text-start">
@@ -35,10 +40,10 @@ const RoomCard = ({ room }) => {
 					</div>
 					<div className="flex-shrink-0 mt-3">
 						<Link
-							to={`/bookings/${room.id}`}
+							to={`/book-room/${room.id}`}
 							className="btn btn-hotel btn-sm"
 						>
-							View / Book Now
+							Book Now
 						</Link>
 					</div>
 				</Card.Body>

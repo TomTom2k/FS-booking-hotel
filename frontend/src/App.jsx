@@ -9,6 +9,9 @@ import Footer from './components/layout/Footer';
 import Navbar from './components/layout/Navbar';
 import RoomList from './components/room/RoomList';
 import Admin from './components/admin/Admin';
+import Checkout from './components/room/Checkout';
+import BookingSuccess from './components/booking/BookingSuccess';
+import Bookings from './components/booking/Bookings';
 
 function App() {
 	return (
@@ -28,10 +31,22 @@ function App() {
 						/>
 						<Route path="/add-room" element={<AddRoom />} />
 						<Route
+							path="/book-room/:roomId"
+							element={<Checkout />}
+						/>
+						<Route
 							path="/browser-all-rooms"
 							element={<RoomList />}
 						/>
+						<Route
+							path="/booking-success"
+							element={<BookingSuccess />}
+						/>
 						<Route path="/admin" element={<Admin />} />
+						<Route
+							path="/existing-bookings"
+							element={<Bookings />}
+						/>
 					</Routes>
 				</Router>
 				<Footer />

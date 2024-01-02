@@ -38,7 +38,7 @@ const Navbar = () => {
 								aria-current="page"
 								to="/admin"
 							>
-								Manage Rooms
+								Admin
 							</Link>
 						</li>
 					</ul>
