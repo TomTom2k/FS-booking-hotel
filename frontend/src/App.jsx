@@ -12,6 +12,7 @@ import Admin from './components/admin/Admin';
 import Checkout from './components/room/Checkout';
 import BookingSuccess from './components/booking/BookingSuccess';
 import Bookings from './components/booking/Bookings';
+import FindBooking from './components/booking/FindBooking';
 
 function App() {
 	return (
@@ -47,6 +48,7 @@ function App() {
 							path="/existing-bookings"
 							element={<Bookings />}
 						/>
+						<Route path="/find-booking" element={<FindBooking />} />
 					</Routes>
 				</Router>
 				<Footer />
